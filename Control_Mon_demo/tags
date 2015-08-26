@@ -1,0 +1,245 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AccelStruct	nunchuck.h	/^struct AccelStruct {$/;"	s	language:C++
+AccelStruct::x	nunchuck.h	/^    uint16_t x;$/;"	m	language:C++	struct:AccelStruct	access:public
+AccelStruct::y	nunchuck.h	/^    uint16_t y;$/;"	m	language:C++	struct:AccelStruct	access:public
+AccelStruct::z	nunchuck.h	/^    uint16_t z;$/;"	m	language:C++	struct:AccelStruct	access:public
+AnotB	servo.h	/^    bool AnotB;$/;"	m	language:C++	struct:Servo	access:public
+AppName	main.cpp	/^const char AppName[] = "Control_Mon_demo";$/;"	v	language:C++
+B_OFFSET	servo.cpp	/^#define B_OFFSET /;"	d	language:C++	file:
+ButtonChange	main.cpp	/^void ButtonChange(bool buttonState)$/;"	f	language:C++	signature:(bool buttonState)
+ButtonChangeFunc	encoder.cpp	/^void (*ButtonChangeFunc)(bool state) = NULL;$/;"	v	language:C++
+ButtonDoubleClick	main.cpp	/^void ButtonDoubleClick()$/;"	f	language:C++	signature:()
+ButtonDoubleClickFunc	encoder.cpp	/^void (*ButtonDoubleClickFunc)() = NULL;$/;"	v	language:C++
+ButtonStruct	nunchuck.h	/^struct ButtonStruct {$/;"	s	language:C++
+ButtonStruct::c	nunchuck.h	/^    bool c;$/;"	m	language:C++	struct:ButtonStruct	access:public
+ButtonStruct::z	nunchuck.h	/^    bool z;$/;"	m	language:C++	struct:ButtonStruct	access:public
+CREATEDTARGS	makefile	/^CREATEDTARGS := htmldata.cpp$/;"	m	language:Make
+CXXSRCS	makefile	/^CXXSRCS := \\$/;"	m	language:Make
+CenterAlignedPWM	servo.cpp	/^void CenterAlignedPWM(int pin, int startCnt, int reset, int pwmOn, int pwmOff )$/;"	f	language:C++	signature:(int pin, int startCnt, int reset, int pwmOn, int pwmOff )
+ChangeDir	stepper.cpp	/^int ChangeDir( int timer, int dir )$/;"	f	language:C++	signature:( int timer, int dir )
+ChangeDir	stepper.h	/^int ChangeDir(int timer, int dir);$/;"	p	language:C++	signature:(int timer, int dir)
+ChangeStepRate	stepper.cpp	/^int ChangeStepRate( int timer, int stepRate )$/;"	f	language:C++	signature:( int timer, int stepRate )
+ChangeStepRate	stepper.h	/^int ChangeStepRate( int timer, int stepRate );$/;"	p	language:C++	signature:( int timer, int stepRate )
+CheckComplete	html/index.htm	/^function CheckComplete(e) {$/;"	f	language:HTML
+CheckLoadOkayClear	servo.cpp	/^void CheckLoadOkayClear(void)$/;"	f	language:C++	signature:(void)
+ConfigureStepper	stepper.cpp	/^int ConfigureStepper( StepperConfig *newStepper, int timer )$/;"	f	language:C++	signature:( StepperConfig *newStepper, int timer )
+ConfigureStepper	stepper.h	/^int ConfigureStepper( StepperConfig *newStepper, int timer );$/;"	p	language:C++	signature:( StepperConfig *newStepper, int timer )
+ConfigureStepperTimer	stepper.cpp	/^int ConfigureStepperTimer( int timer, int pit_per_sec )$/;"	f	language:C++	signature:( int timer, int pit_per_sec )
+ConfigureStepperTimer	stepper.h	/^int ConfigureStepperTimer( int timer, int pit_per_sec );$/;"	p	language:C++	signature:( int timer, int pit_per_sec )
+ConsumeSocket	main.cpp	/^static int ConsumeSocket( char c, bool &inStr, bool &strEscape )$/;"	f	language:C++	file:	signature:( char c, bool &inStr, bool &strEscape )
+DEBOUNCE_COUNT	encoder.cpp	/^#define DEBOUNCE_COUNT /;"	d	language:C++	file:
+DEBOUNCE_PERIOD	encoder.cpp	/^#define DEBOUNCE_PERIOD /;"	d	language:C++	file:
+DOUBLE_CLICK_COUNT	encoder.cpp	/^#define DOUBLE_CLICK_COUNT /;"	d	language:C++	file:
+DoHtmlFunction	htmldata.cpp	/^int DoHtmlFunction(int fd, PCSTR url,WORD n) { return 0; };$/;"	f	language:C++	signature:(int fd, PCSTR url,WORD n)
+DoHtmlVariable	htmldata.cpp	/^int DoHtmlVariable(int fd,WORD n) { return 0; };$/;"	f	language:C++	signature:(int fd,WORD n)
+EdgeCaptStruct	encoder.cpp	/^struct EdgeCaptStruct {$/;"	s	language:C++	file:
+EdgeCaptStruct::dupCount	encoder.cpp	/^    int  dupCount;$/;"	m	language:C++	struct:EdgeCaptStruct	file:	access:public
+EdgeCaptStruct::lastStable	encoder.cpp	/^    bool lastStable;$/;"	m	language:C++	struct:EdgeCaptStruct	file:	access:public
+EdgeCaptStruct::prev	encoder.cpp	/^    bool prev;$/;"	m	language:C++	struct:EdgeCaptStruct	file:	access:public
+EnableEncoder	encoder.cpp	/^void EnableEncoder( void (*stepFn)(int), void (*changeFn)(bool), void (*dblFn)())$/;"	f	language:C++	signature:( void (*stepFn)(int), void (*changeFn)(bool), void (*dblFn)())
+EnableEncoder	encoder.h	/^void EnableEncoder( void (*stepFn)(int), void (*changeFn)(bool), void (*dblFn)());$/;"	p	language:C++	signature:( void (*stepFn)(int), void (*changeFn)(bool), void (*dblFn)())
+EncodeStep	main.cpp	/^void EncodeStep(int dir)$/;"	f	language:C++	signature:(int dir)
+EncoderEdgeFunc	encoder.cpp	/^void (*EncoderEdgeFunc)(int dir) = NULL;$/;"	v	language:C++
+FilePointer0	htmldata.cpp	/^const unsigned char FilePointer0[]={$/;"	v	language:C++
+FilePointer1	htmldata.cpp	/^const unsigned char FilePointer1[]={$/;"	v	language:C++
+GetCanvas	html/index.htm	/^function GetCanvas() { return document.getElementById(canvasID); }$/;"	f	language:HTML
+GetContext	html/index.htm	/^function GetContext() { return GetCanvas().getContext("2d"); }$/;"	f	language:HTML
+GetStepCanvas	html/index.htm	/^function GetStepCanvas() { return document.getElementById(stepCanvasID); }$/;"	f	language:HTML
+GetStepContext	html/index.htm	/^function GetStepContext() { return GetStepCanvas().getContext("2d"); }$/;"	f	language:HTML
+INCOMING_BUF_SIZE	main.cpp	/^#define INCOMING_BUF_SIZE /;"	d	language:C++	file:
+INTERRUPT	encoder.cpp	/^INTERRUPT(EdgeCaptureISR, 0x2600)$/;"	f	language:C++	signature:(EdgeCaptureISR, 0x2600)
+INTERRUPT	lidar_lite.cpp	/^INTERRUPT(LL_PIT_ISR, 0x2300)$/;"	f	language:C++	signature:(LL_PIT_ISR, 0x2300)
+INTERRUPT	nunchuck.cpp	/^INTERRUPT( NunchuckISR, 0x2400 )$/;"	f	language:C++	signature:( NunchuckISR, 0x2400 )
+INTERRUPT	stepper.cpp	/^INTERRUPT( StepPit1_ISR, 0x2600 )$/;"	f	language:C++	signature:( StepPit1_ISR, 0x2600 )
+INTERRUPT	stepper.cpp	/^INTERRUPT( StepPit2_ISR, 0x2600 )$/;"	f	language:C++	signature:( StepPit2_ISR, 0x2600 )
+IncomingBuffer	main.cpp	/^char IncomingBuffer[INCOMING_BUF_SIZE];$/;"	v	language:C++
+Init	nunchuck.h	/^    inline void Init() { Nunchuck_Init(); }$/;"	f	language:C++	struct:NunchuckStruct	access:public	signature:()
+Init	servo.cpp	/^void Servo::Init()$/;"	f	language:C++	class:Servo	signature:()
+Init	servo.h	/^    void Init();$/;"	p	language:C++	struct:Servo	access:public	signature:()
+Init	stepper.h	/^    inline void Init() {$/;"	f	language:C++	struct:StepperConfig	access:public	signature:()
+InitializeModule	servo.cpp	/^void InitializeModule(void)$/;"	f	language:C++	signature:(void)
+InputTask	main.cpp	/^void InputTask( void * pd )$/;"	f	language:C++	signature:( void * pd )
+LIDAR_LITE_ADDR	lidar_lite.cpp	/^#define LIDAR_LITE_ADDR /;"	d	language:C++	file:
+LLInit	lidar_lite.cpp	/^void LLInit(int i2c_chan)$/;"	f	language:C++	signature:(int i2c_chan)
+LLInit	lidar_lite.h	/^void LLInit(int i2c_chan);$/;"	p	language:C++	signature:(int i2c_chan)
+LLRead	lidar_lite.cpp	/^uint16_t LLRead(int i2c_chan)$/;"	f	language:C++	signature:(int i2c_chan)
+LLRead	lidar_lite.h	/^uint16_t LLRead(int i2c_chan);$/;"	p	language:C++	signature:(int i2c_chan)
+LLSem	lidar_lite.cpp	/^OS_SEM LLSem;$/;"	v	language:C++
+LOGME	nunchuck.cpp	/^#define LOGME /;"	d	language:C++	file:
+MAX_COUNT	encoder.cpp	/^#define MAX_COUNT /;"	d	language:C++	file:
+MIME_table	htmldata.cpp	/^const char * MIME_table[2]={$/;"	v	language:C++
+MIN_COUNT	encoder.cpp	/^#define MIN_COUNT /;"	d	language:C++	file:
+MakeDataSocket	html/index.htm	/^function MakeDataSocket() {$/;"	f	language:HTML
+MeasureValue	lidar_lite.cpp	/^#define MeasureValue /;"	d	language:C++	file:
+MoveStepper	stepper.cpp	/^int MoveStepper( int timer, uint32_t stepCount, int dir, int stepRate, OS_SEM * completeSem )$/;"	f	language:C++	signature:( int timer, uint32_t stepCount, int dir, int stepRate, OS_SEM * completeSem )
+MoveStepper	stepper.h	/^int MoveStepper( int timer, uint32_t stepCount, int dir = 1,$/;"	p	language:C++	signature:( int timer, uint32_t stepCount, int dir = 1, int stepRate = STEPPER_DEFAULT_STEP_RATE, OS_SEM *completeSem = NULL )
+MyDoWSUpgrade	main.cpp	/^int MyDoWSUpgrade( HTTP_Request *req, int sock, PSTR url, PSTR rxb )$/;"	f	language:C++	signature:( HTTP_Request *req, int sock, PSTR url, PSTR rxb )
+NAME	makefile	/^NAME	= Control_Mon_demo$/;"	m	language:Make
+NunchuckStruct	nunchuck.h	/^struct NunchuckStruct {$/;"	s	language:C++
+NunchuckStruct::Init	nunchuck.h	/^    inline void Init() { Nunchuck_Init(); }$/;"	f	language:C++	struct:NunchuckStruct	access:public	signature:()
+NunchuckStruct::Serialize	nunchuck.cpp	/^int NunchuckStruct::Serialize(char *buf, int maxLen)$/;"	f	language:C++	class:NunchuckStruct	signature:(char *buf, int maxLen)
+NunchuckStruct::Serialize	nunchuck.h	/^    int Serialize(char * buf, int maxLen = 0);$/;"	p	language:C++	struct:NunchuckStruct	access:public	signature:(char * buf, int maxLen = 0)
+NunchuckStruct::Update	nunchuck.cpp	/^void NunchuckStruct::Update()$/;"	f	language:C++	class:NunchuckStruct	signature:()
+NunchuckStruct::Update	nunchuck.h	/^    void Update();$/;"	p	language:C++	struct:NunchuckStruct	access:public	signature:()
+NunchuckStruct::accel	nunchuck.h	/^    AccelStruct accel;$/;"	m	language:C++	struct:NunchuckStruct	access:public
+NunchuckStruct::button	nunchuck.h	/^    ButtonStruct button;$/;"	m	language:C++	struct:NunchuckStruct	access:public
+NunchuckStruct::stick	nunchuck.h	/^    StickStruct stick;$/;"	m	language:C++	struct:NunchuckStruct	access:public
+Nunchuck_Init	nunchuck.cpp	/^void Nunchuck_Init()$/;"	f	language:C++	signature:()
+Nunchuck_Init	nunchuck.h	/^void Nunchuck_Init();$/;"	p	language:C++	signature:()
+Nunchuck_Read	nunchuck.cpp	/^void Nunchuck_Read(uint8_t *readBuf)$/;"	f	language:C++	signature:(uint8_t *readBuf)
+Nunchuck_Read	nunchuck.h	/^void Nunchuck_Read(uint8_t *readBuf);$/;"	p	language:C++	signature:(uint8_t *readBuf)
+PLATFORM	makefile	/^PLATFORM= MOD5441X$/;"	m	language:Make
+ParseInput	main.cpp	/^static void ParseInput( char *buf )$/;"	f	language:C++	file:	signature:( char *buf )
+PinFunctionPWM	servo.cpp	/^void PinFunctionPWM(int pin)$/;"	f	language:C++	signature:(int pin)
+REPORT_BUF_SIZE	main.cpp	/^#define REPORT_BUF_SIZE /;"	d	language:C++	file:
+RangingTask	main.cpp	/^void RangingTask( void * pd )$/;"	f	language:C++	signature:( void * pd )
+Refresh	html/index.htm	/^function Refresh(x, y) {$/;"	f	language:HTML
+RegisterDefinitions	servo.cpp	/^void RegisterDefinitions(int submod, BOOL AnotB)$/;"	f	language:C++	signature:(int submod, BOOL AnotB)
+RegisterHighLowB	lidar_lite.cpp	/^#define RegisterHighLowB /;"	d	language:C++	file:
+RegisterMeasure	lidar_lite.cpp	/^#define RegisterMeasure /;"	d	language:C++	file:
+ReportBuffer	main.cpp	/^char ReportBuffer[REPORT_BUF_SIZE];$/;"	v	language:C++
+ReportTask	main.cpp	/^void ReportTask( void * pd )$/;"	f	language:C++	signature:( void * pd )
+STEPPER_DEFAULT_STEP_RATE	stepper.h	/^#define STEPPER_DEFAULT_STEP_RATE /;"	d	language:C++
+STEPPER_MAX_PIN_COUNT	stepper.h	/^#define STEPPER_MAX_PIN_COUNT /;"	d	language:C++
+STEPPER_MAX_SEQ_SIZE	stepper.h	/^#define STEPPER_MAX_SEQ_SIZE /;"	d	language:C++
+STEPPER_MAX_SPEED	main.cpp	/^#define STEPPER_MAX_SPEED /;"	d	language:C++	file:
+STEPPER_PIN_COUNT	main.cpp	/^#define STEPPER_PIN_COUNT /;"	d	language:C++	file:
+STEPPER_SEQ_SIZE	main.cpp	/^#define STEPPER_SEQ_SIZE /;"	d	language:C++	file:
+STEP_RATE	main.cpp	/^#define STEP_RATE /;"	d	language:C++	file:
+SendConfigReport	main.cpp	/^void SendConfigReport(int ws_fd)$/;"	f	language:C++	signature:(int ws_fd)
+Serialize	nunchuck.cpp	/^int NunchuckStruct::Serialize(char *buf, int maxLen)$/;"	f	language:C++	class:NunchuckStruct	signature:(char *buf, int maxLen)
+Serialize	nunchuck.h	/^    int Serialize(char * buf, int maxLen = 0);$/;"	p	language:C++	struct:NunchuckStruct	access:public	signature:(char * buf, int maxLen = 0)
+Servo	servo.cpp	/^Servo::Servo(int pin, bool clockwise)$/;"	f	language:C++	class:Servo	signature:(int pin, bool clockwise)
+Servo	servo.h	/^    Servo(int pin, bool clockwise = true);$/;"	p	language:C++	struct:Servo	access:public	signature:(int pin, bool clockwise = true)
+Servo	servo.h	/^struct Servo {$/;"	s	language:C++
+Servo::AnotB	servo.h	/^    bool AnotB;$/;"	m	language:C++	struct:Servo	access:public
+Servo::Init	servo.cpp	/^void Servo::Init()$/;"	f	language:C++	class:Servo	signature:()
+Servo::Init	servo.h	/^    void Init();$/;"	p	language:C++	struct:Servo	access:public	signature:()
+Servo::Servo	servo.cpp	/^Servo::Servo(int pin, bool clockwise)$/;"	f	language:C++	class:Servo	signature:(int pin, bool clockwise)
+Servo::Servo	servo.h	/^    Servo(int pin, bool clockwise = true);$/;"	p	language:C++	struct:Servo	access:public	signature:(int pin, bool clockwise = true)
+Servo::SetPos	servo.cpp	/^void Servo::SetPos(double pos)$/;"	f	language:C++	class:Servo	signature:(double pos)
+Servo::SetPos	servo.cpp	/^void Servo::SetPos(uint8_t pos)$/;"	f	language:C++	class:Servo	signature:(uint8_t pos)
+Servo::SetPos	servo.h	/^    void SetPos(double pos);$/;"	p	language:C++	struct:Servo	access:public	signature:(double pos)
+Servo::SetPos	servo.h	/^    void SetPos(uint8_t pos);$/;"	p	language:C++	struct:Servo	access:public	signature:(uint8_t pos)
+Servo::cw	servo.h	/^    bool cw;$/;"	m	language:C++	struct:Servo	access:public
+Servo::pin	servo.h	/^    int pin;$/;"	m	language:C++	struct:Servo	access:public
+Servo::pulse_max	servo.h	/^    int pulse_max;$/;"	m	language:C++	struct:Servo	access:public
+Servo::pulse_min	servo.h	/^    int pulse_min;$/;"	m	language:C++	struct:Servo	access:public
+Servo::reset	servo.h	/^    int reset;$/;"	m	language:C++	struct:Servo	access:public
+Servo::startCnt	servo.h	/^    int startCnt;$/;"	m	language:C++	struct:Servo	access:public
+Servo::submod	servo.h	/^    int submod;$/;"	m	language:C++	struct:Servo	access:public
+SetDir	html/index.htm	/^function SetDir(dir) {$/;"	f	language:HTML
+SetPos	servo.cpp	/^void Servo::SetPos(double pos)$/;"	f	language:C++	class:Servo	signature:(double pos)
+SetPos	servo.cpp	/^void Servo::SetPos(uint8_t pos)$/;"	f	language:C++	class:Servo	signature:(uint8_t pos)
+SetPos	servo.h	/^    void SetPos(double pos);$/;"	p	language:C++	struct:Servo	access:public	signature:(double pos)
+SetPos	servo.h	/^    void SetPos(uint8_t pos);$/;"	p	language:C++	struct:Servo	access:public	signature:(uint8_t pos)
+SetupCanvas	html/index.htm	/^function SetupCanvas() {$/;"	f	language:HTML
+ShowDirection	html/index.htm	/^function ShowDirection(ctx, dir) {$/;"	f	language:HTML
+ShowStepperPos	html/index.htm	/^function ShowStepperPos(ctx, stepCount, degPerStep)$/;"	f	language:HTML
+SockReadySem	main.cpp	/^OS_SEM SockReadySem;$/;"	v	language:C++
+StartStepper	stepper.cpp	/^int StartStepper( int timer, int dir, int stepRate )$/;"	f	language:C++	signature:( int timer, int dir, int stepRate )
+StartStepper	stepper.h	/^int StartStepper( int timer, int dir = 1, int stepRate = STEPPER_DEFAULT_STEP_RATE );$/;"	p	language:C++	signature:( int timer, int dir = 1, int stepRate = STEPPER_DEFAULT_STEP_RATE )
+StepperConfig	stepper.h	/^struct StepperConfig {$/;"	s	language:C++
+StepperConfig::Init	stepper.h	/^    inline void Init() {$/;"	f	language:C++	struct:StepperConfig	access:public	signature:()
+StepperConfig::pinCount	stepper.h	/^    uint8_t pinCount;$/;"	m	language:C++	struct:StepperConfig	access:public
+StepperConfig::pins	stepper.h	/^    PinIO pins[STEPPER_MAX_PIN_COUNT];$/;"	m	language:C++	struct:StepperConfig	access:public
+StepperConfig::seq	stepper.h	/^    uint8_t seq[STEPPER_MAX_SEQ_SIZE];$/;"	m	language:C++	struct:StepperConfig	access:public
+StepperConfig::seqIndex	stepper.h	/^    int seqIndex;$/;"	m	language:C++	struct:StepperConfig	access:public
+StepperConfig::seqLen	stepper.h	/^    uint8_t seqLen;$/;"	m	language:C++	struct:StepperConfig	access:public
+StepperControl	stepper.h	/^struct StepperControl {$/;"	s	language:C++
+StepperControl::dir	stepper.h	/^    int dir; \/\/ 1 = normal seq, -1 = reverse seq$/;"	m	language:C++	struct:StepperControl	access:public
+StepperControl::done	stepper.h	/^    bool done;$/;"	m	language:C++	struct:StepperControl	access:public
+StepperControl::motor	stepper.h	/^    StepperConfig *motor;$/;"	m	language:C++	struct:StepperControl	access:public
+StepperControl::runForever	stepper.h	/^    bool runForever;$/;"	m	language:C++	struct:StepperControl	access:public
+StepperControl::sem	stepper.h	/^    OS_SEM *sem;$/;"	m	language:C++	struct:StepperControl	access:public
+StepperControl::stepsRem	stepper.h	/^    uint32_t stepsRem;$/;"	m	language:C++	struct:StepperControl	access:public
+StepperControl::stepsTaken	stepper.h	/^    int32_t stepsTaken;$/;"	m	language:C++	struct:StepperControl	access:public
+StepperDone	stepper.cpp	/^bool StepperDone( int timer )$/;"	f	language:C++	signature:( int timer )
+StepperDone	stepper.h	/^bool StepperDone( int timer );$/;"	p	language:C++	signature:( int timer )
+StepperISR	main.cpp	/^void StepperISR( int timerNum );$/;"	p	language:C++	file:	signature:( int timerNum )
+StepperISR	stepper.cpp	/^void StepperISR( int timerNum )$/;"	f	language:C++	signature:( int timerNum )
+Steppers	stepper.cpp	/^volatile StepperControl Steppers[4];$/;"	v	language:C++
+StickStruct	nunchuck.h	/^struct StickStruct {$/;"	s	language:C++
+StickStruct::x	nunchuck.h	/^    uint8_t x;$/;"	m	language:C++	struct:StickStruct	access:public
+StickStruct::y	nunchuck.h	/^    uint8_t y;$/;"	m	language:C++	struct:StickStruct	access:public
+StopStepper	stepper.cpp	/^int StopStepper( int timer )$/;"	f	language:C++	signature:( int timer )
+StopStepper	stepper.h	/^int StopStepper( int timer );$/;"	p	language:C++	signature:( int timer )
+TIMER_A_NUMBER	encoder.cpp	/^#define TIMER_A_NUMBER /;"	d	language:C++	file:
+TIMER_B_NUMBER	encoder.cpp	/^#define TIMER_B_NUMBER /;"	d	language:C++	file:
+Update	nunchuck.cpp	/^void NunchuckStruct::Update()$/;"	f	language:C++	class:NunchuckStruct	signature:()
+Update	nunchuck.h	/^    void Update();$/;"	p	language:C++	struct:NunchuckStruct	access:public	signature:()
+UserMain	main.cpp	/^    void UserMain( void * pd );$/;"	p	language:C++	file:	signature:( void * pd )
+UserMain	main.cpp	/^void UserMain( void * pd )$/;"	f	language:C++	signature:( void * pd )
+__ENCODER_H	encoder.h	/^#define  __ENCODER_H$/;"	d	language:C++
+__LIDAR_LITE_H	lidar_lite.h	/^#define  __LIDAR_LITE_H$/;"	d	language:C++
+__NUNCHUCK_H	nunchuck.h	/^#define  __NUNCHUCK_H$/;"	d	language:C++
+a	encoder.cpp	/^static EdgeCaptStruct a;$/;"	v	language:C++	file:
+accel	nunchuck.h	/^    AccelStruct accel;$/;"	m	language:C++	struct:NunchuckStruct	access:public
+b	encoder.cpp	/^static EdgeCaptStruct b;$/;"	v	language:C++	file:
+button	nunchuck.h	/^    ButtonStruct button;$/;"	m	language:C++	struct:NunchuckStruct	access:public
+c	nunchuck.h	/^    bool c;$/;"	m	language:C++	struct:ButtonStruct	access:public
+clearCanvas	html/index.htm	/^function clearCanvas(canvas) {$/;"	f	language:HTML
+count	encoder.cpp	/^int32_t count = 0;$/;"	v	language:C++
+cw	servo.h	/^    bool cw;$/;"	m	language:C++	struct:Servo	access:public
+default_page	htmldata.cpp	/^const char * default_page="INDEX.HTM";$/;"	v	language:C++
+dir	stepper.h	/^    int dir; \/\/ 1 = normal seq, -1 = reverse seq$/;"	m	language:C++	struct:StepperControl	access:public
+done	stepper.h	/^    bool done;$/;"	m	language:C++	struct:StepperControl	access:public
+drawArcedArrow	html/canvasutilities.js	/^var drawArcedArrow=function(ctx,x,y,r,startangle,endangle,anticlockwise,style,which,angle,d,width)$/;"	f	language:JavaScript
+drawArrow	html/canvasutilities.js	/^var drawArrow=function(ctx,x1,y1,x2,y2,style,which,angle,d, width)$/;"	f	language:JavaScript
+drawBorder	html/index.htm	/^function drawBorder(ctx) {$/;"	f	language:HTML
+drawCircle	html/index.htm	/^function drawCircle(ctx, x, y, radius, fill) {$/;"	f	language:HTML
+drawHead	html/canvasutilities.js	/^var drawHead=function(ctx,x0,y0,x1,y1,x2,y2,style)$/;"	f	language:JavaScript
+drawPip	html/index.htm	/^function drawPip() {$/;"	f	language:HTML
+dupCount	encoder.cpp	/^    int  dupCount;$/;"	m	language:C++	struct:EdgeCaptStruct	file:	access:public
+file_password_groups	htmldata.cpp	/^const int file_password_groups[3]={$/;"	v	language:C++
+file_record	htmldata.cpp	/^const HTML_FILE_RECORD file_record[2]={$/;"	v	language:C++
+html_table	htmldata.cpp	/^const char *  html_table[64]={$/;"	v	language:C++
+httpstricmp	main.cpp	/^int httpstricmp( PCSTR s1, PCSTR sisupper2 )$/;"	f	language:C++	signature:( PCSTR s1, PCSTR sisupper2 )
+keyUp	main.cpp	/^bool keyUp;$/;"	v	language:C++
+lastButtonUp	encoder.cpp	/^static uint32_t lastButtonUp = 0xFFFFFFFF;$/;"	v	language:C++	file:
+lastStable	encoder.cpp	/^    bool lastStable;$/;"	m	language:C++	struct:EdgeCaptStruct	file:	access:public
+lidarRange	main.cpp	/^uint16_t lidarRange;$/;"	v	language:C++
+motor	stepper.h	/^    StepperConfig *motor;$/;"	m	language:C++	struct:StepperControl	access:public
+n_file_record	htmldata.cpp	/^const unsigned  n_file_record=2;$/;"	v	language:C++
+new_pmr	stepper.cpp	/^static WORD     new_pmr[4];$/;"	v	language:C++	file:
+nun	main.cpp	/^NunchuckStruct nun;$/;"	v	language:C++
+nunchuckReadSem	nunchuck.cpp	/^OS_SEM nunchuckReadSem;$/;"	v	language:C++
+pin	servo.h	/^    int pin;$/;"	m	language:C++	struct:Servo	access:public
+pinCount	stepper.h	/^    uint8_t pinCount;$/;"	m	language:C++	struct:StepperConfig	access:public
+pins	stepper.h	/^    PinIO pins[STEPPER_MAX_PIN_COUNT];$/;"	m	language:C++	struct:StepperConfig	access:public
+pit_pcsr_clr	stepper.cpp	/^static WORD     pit_pcsr_clr[4];$/;"	v	language:C++	file:
+prev	encoder.cpp	/^    bool prev;$/;"	m	language:C++	struct:EdgeCaptStruct	file:	access:public
+pulse_max	servo.h	/^    int pulse_max;$/;"	m	language:C++	struct:Servo	access:public
+pulse_min	servo.h	/^    int pulse_min;$/;"	m	language:C++	struct:Servo	access:public
+reset	servo.h	/^    int reset;$/;"	m	language:C++	struct:Servo	access:public
+runForever	stepper.h	/^    bool runForever;$/;"	m	language:C++	struct:StepperControl	access:public
+sem	stepper.h	/^    OS_SEM *sem;$/;"	m	language:C++	struct:StepperControl	access:public
+seq	stepper.h	/^    uint8_t seq[STEPPER_MAX_SEQ_SIZE];$/;"	m	language:C++	struct:StepperConfig	access:public
+seqIndex	stepper.h	/^    int seqIndex;$/;"	m	language:C++	struct:StepperConfig	access:public
+seqLen	stepper.h	/^    uint8_t seqLen;$/;"	m	language:C++	struct:StepperConfig	access:public
+startCnt	servo.h	/^    int startCnt;$/;"	m	language:C++	struct:Servo	access:public
+stepDir	main.cpp	/^int stepSpeed, stepDir;$/;"	v	language:C++
+stepForever	main.cpp	/^bool stepForever;$/;"	v	language:C++
+stepSem	main.cpp	/^OS_SEM stepSem;$/;"	v	language:C++
+stepSpeed	main.cpp	/^int stepSpeed, stepDir;$/;"	v	language:C++
+stepper	main.cpp	/^StepperConfig stepper = {$/;"	v	language:C++
+stepsRem	stepper.h	/^    uint32_t stepsRem;$/;"	m	language:C++	struct:StepperControl	access:public
+stepsTaken	stepper.h	/^    int32_t stepsTaken;$/;"	m	language:C++	struct:StepperControl	access:public
+stick	nunchuck.h	/^    StickStruct stick;$/;"	m	language:C++	struct:NunchuckStruct	access:public
+submod	servo.h	/^    int submod;$/;"	m	language:C++	struct:Servo	access:public
+timer_a	encoder.cpp	/^volatile timerstruct &timer_a = sim2.timer[TIMER_A_NUMBER];$/;"	v	language:C++
+timer_b	encoder.cpp	/^volatile timerstruct &timer_b = sim2.timer[TIMER_B_NUMBER];$/;"	v	language:C++
+updateText	html/index.htm	/^function updateText() {$/;"	f	language:HTML
+ws_fd	main.cpp	/^int ws_fd = -1;$/;"	v	language:C++
+x	nunchuck.h	/^    uint16_t x;$/;"	m	language:C++	struct:AccelStruct	access:public
+x	nunchuck.h	/^    uint8_t x;$/;"	m	language:C++	struct:StickStruct	access:public
+y	nunchuck.h	/^    uint16_t y;$/;"	m	language:C++	struct:AccelStruct	access:public
+y	nunchuck.h	/^    uint8_t y;$/;"	m	language:C++	struct:StickStruct	access:public
+z	nunchuck.h	/^    bool z;$/;"	m	language:C++	struct:ButtonStruct	access:public
+z	nunchuck.h	/^    uint16_t z;$/;"	m	language:C++	struct:AccelStruct	access:public
+zed	encoder.cpp	/^static EdgeCaptStruct zed;$/;"	v	language:C++	file:
