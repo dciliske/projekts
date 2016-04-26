@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+
+</HEAD>
+<BODY>
+<DIV>This is a basic HTML5 Canvas test.</DIV>
+<br>
+
+<canvas id="Nunchuck_Canvas" width="200" height="200">
+    
+</canvas>
+</BODY>
+<script>
+
+function drawCircle(x, y, radius, fill) {
+    var ctx = document.getElementById("Nunchuck_Canvas").getContext("2d");
+    var startAngle = 0;
+    var endAngle = Math.PI*2;
+    ctx.beginPath();
+    ctx.arc(x, y, radius, startAngle, endAngle, false);
+    
+    if(fill) {
+        ctx.fill();
+    }
+    else {
+        ctx.stroke();
+    }
+}
+
+document.onload = function (){
+    drawCircle(100, 100, 99, false);
+    drawCircle(100, 100, 30, true);
+}
+</script>
+</HTML>

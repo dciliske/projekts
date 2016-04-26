@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<script>
+
+var pipRadius = 40;
+var canvasSize = 256+pipRadius*2+2;
+var borderRadius = canvasSize/2 - 1;
+var center = canvasSize/2;
+var canvasID = "Nunchuck_Canvas";
+var ws = null;
+
+var pip = { x: 128, y: 128 };
+
+function GetCanvas() {
+    return document.getElementById(canvasID);
+}
+
+function GetContext() {
+    return GetCanvas().getContext("2d");
+}
+
+function clearCanvas() {
+    GetContext().clearRect(0, 0, canvasSize, canvasSize);
+}
+
+function drawCircle(x, y, radius, fill) {
+    var ctx = GetContext();
+    var startAngle = 0;
+    var endAngle = Math.PI*2;
+    ctx.beginPath();
+    ctx.arc(x, y, radius, startAngle, endAngle, false);
+    
+    if(fill) {
+        ctx.fill();
+    }
+    else {
+        ctx.stroke();
+    }
+}
+
+function drawBorder() {
+    var ctx = GetContext();
+    ctx.strokeStyle = "black";
+    drawCircle(center,center, borderRadius, false);
+}
+
+function drawPip() {
+    var ctx = GetContext();
+    ctx.strokeStyle = "#2E9AFE";
+    ctx.fillStyle = "#2E9AFE";
+    drawCircle(center - 128 + pip.x,center + 128 - pip.y, pipRadius, true);
+}
+
+function SetupCanvas() {
+    GetCanvas().setAttribute("height", canvasSize);
+    GetCanvas().setAttribute("width", canvasSize);
+    drawBorder();
+    drawPip(center, center);
+    MakeDataSocket();
+}
+
+function updateText() {
+    document.getElementById("nun_stick_x").value = pip.x;
+    document.getElementById("nun_stick_y").value = pip.y;
+}
+
+function Refresh(x, y) {
+    pip.x = x;
+    pip.y = y;
+    clearCanvas();
+    drawBorder();
+    drawPip();
+    updateText();
+}
+
+function MakeDataSocket() {
+    if ("WebSocket" in window)
+    {
+        if ((ws==null) || (ws.readyState==WebSocket.CLOSED)) {
+            ws = new WebSocket("ws://"+window.location.hostname+"/SERVO");
+            ws.onopen = function()
+            {
+            };
+            ws.onmessage = function(evt) {
+                var rxMsg = evt.data;
+                var nun = JSON.parse(rxMsg); // HAHAHAHA! Don't do this... eval unsanitized input
+                Refresh(nun.stick.x, nun.stick.y);
+            };
+            ws.onclose = function()
+            {
+            };
+        }
+    }
+}
+
+</script>
+</HEAD>
+<TITLE>Nunchuck Canvas Test</TITLE>
+<BODY onload="SetupCanvas()">
+<DIV id="container">
+<DIV>This is a basic HTML5 Canvas test.</DIV>
+<br>
+
+<DIV id="canvas_div">
+<canvas id="Nunchuck_Canvas" width="256" height="256">
+    
+</canvas>
+</DIV>
+<br>
+<DIV>
+    <DIV style="display:inline">X: <input id="nun_stick_x" type="text" disabled></input</DIV>
+    <DIV style="display:inline">Y: <input id="nun_stick_y" type="text" disabled></input></DIV>
+</DIV>
+</DIV>
+</BODY>
+</HTML>

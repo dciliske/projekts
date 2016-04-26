@@ -1,0 +1,302 @@
+<HTML>
+<HEAD>
+<script type="text/javascript" src="canvasutilities.js"></script>
+<script>
+
+var pipRadius = 40;
+var canvasSize = 256+pipRadius*2+2;
+var borderRadius = canvasSize/2 - 1;
+var center = canvasSize/2;
+var canvasID = "Nunchuck_Canvas";
+
+var stepCanvasID = "Stepper_Canvas";
+var stepCanv = { size: canvasSize, center: canvasSize/2 };
+var stepDegPerStep = 1.8;
+var stepPosIndLen = 100;
+
+var ws = null;
+
+var report;
+
+var selected = { count: false, speed: false };
+
+var pip = { x: 128, y: 128 };
+
+function GetCanvas() { return document.getElementById(canvasID); }
+function GetContext() { return GetCanvas().getContext("2d"); }
+
+function GetStepCanvas() { return document.getElementById(stepCanvasID); }
+function GetStepContext() { return GetStepCanvas().getContext("2d"); }
+
+function clearCanvas(canvas) {
+    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawCircle(ctx, x, y, radius, fill) {
+    var startAngle = 0;
+    var endAngle = Math.PI*2;
+    ctx.beginPath();
+    ctx.arc(x, y, radius, startAngle, endAngle, false);
+    
+    if(fill) {
+        ctx.fill();
+    }
+    else {
+        ctx.stroke();
+    }
+}
+
+function drawBorder(ctx) {
+    ctx.save();
+    ctx.strokeStyle = "black";
+    drawCircle(ctx, center,center, borderRadius, false);
+    ctx.restore();
+}
+
+function drawPip() {
+    var ctx = GetContext();
+    ctx.save();
+    ctx.strokeStyle = "#2E9AFE";
+    ctx.fillStyle = "#2E9AFE";
+    drawCircle(ctx, center - 128 + pip.x,center + 128 - pip.y, pipRadius, true);
+    ctx.restore();
+}
+
+function SetupCanvas() {
+    GetCanvas().setAttribute("height", canvasSize);
+    GetCanvas().setAttribute("width", canvasSize);
+    drawBorder(GetContext());
+    drawPip(center, center);
+    GetStepCanvas().setAttribute("height", stepCanv.size);
+    GetStepCanvas().setAttribute("width", stepCanv.size);
+    drawBorder(GetStepContext());
+    MakeDataSocket();
+}
+
+function updateText() {
+    document.getElementById("nun_stick_x").value = pip.x;
+    document.getElementById("nun_stick_y").value = pip.y;
+}
+
+function ShowDirection(ctx, dir) {
+    ctx.save();
+    ctx.linewidth = 2;
+    var anticlockwise;
+    var startAngle, endAngle;
+    if (dir == -1) {
+        ctx.strokeStyle = "#FF0000";
+        ctx.fillStyle = "#FF0000";
+        anticlockwise = false;
+        startAngle = 1/8*Math.PI;
+        endAngle = 7/8*Math.PI;
+    } 
+    else if (dir == 1) {
+        ctx.strokeStyle = "#00FF00";
+        ctx.fillStyle = "#00FF00";
+        anticlockwise = true;
+        startAngle = -1/8*Math.PI;
+        endAngle = -7/8*Math.PI;
+    }
+    drawArcedArrow(ctx,center,center,canvasSize/3,startAngle,endAngle,anticlockwise,
+                    3,1,Math.PI/4,10,2)
+    ctx.restore();
+}
+
+function ShowStepperPos(ctx, stepCount, degPerStep)
+{
+    var totalDeg = (stepCount * degPerStep) % 360;
+    var delta_x = Math.cos(totalDeg/180*Math.PI) * stepPosIndLen;
+    var delta_y = Math.sin(totalDeg/180*Math.PI) * stepPosIndLen;
+
+    drawArrow(ctx, center, center, center+delta_x, center+delta_y, 3, 1, Math.PI/4, 10, 2);
+}
+
+function Refresh(x, y) {
+    pip.x = x;
+    pip.y = y;
+    clearCanvas(GetCanvas());
+    drawBorder(GetContext());
+    drawPip();
+    updateText();
+    clearCanvas(GetStepCanvas());
+    drawBorder(GetStepContext());
+    ShowDirection(GetStepContext(), report.stepper.dir);
+    ShowStepperPos(GetStepContext(),report.stepper.taken, stepDegPerStep);
+    if (report.stepper.dir==1) {
+        document.getElementById("dir_radio_cw").checked = true;
+        document.getElementById("dir_radio_CCW").checked = false;
+    }
+    else if (report.stepper.dir==-1) {
+        document.getElementById("dir_radio_cw").checked = false;
+        document.getElementById("dir_radio_CCW").checked = true;
+    }
+    if (!selected.count) {
+        if (report.stepper.forever) {
+            var stepremin = document.getElementById("stepsRem");
+            stepremin.type = "text";
+            stepremin.value = "inf";
+        }
+        else {
+            var stepremin = document.getElementById("stepsRem");
+            stepremin.type = "text";
+            stepremin.value = report.stepper.rem;
+        }
+    }
+    if (!selected.speed) {
+        var speedin = document.getElementById("stepsPerSec");
+        speedin.value = report.stepper.speed;
+    }
+
+    document.getElementById("range_in").value = report.range;
+}
+
+function MakeDataSocket() {
+    if ("WebSocket" in window)
+    {
+        if ((ws==null) || (ws.readyState==WebSocket.CLOSED)) {
+            ws = new WebSocket("ws://"+window.location.hostname+"/CONTROLLER");
+            ws.onopen = function()
+            {
+            };
+            ws.onmessage = function(evt) {
+                var rxMsg = evt.data;
+                report = JSON.parse(rxMsg);
+                var nun = report.nun;
+                Refresh(nun.stick.x, nun.stick.y);
+            };
+            ws.onclose = function()
+            {
+            };
+        }
+    }
+}
+
+function CheckComplete(e) {
+    if (e.keyCode==13) { // enter key has been pressed
+        var speedin = document.getElementById("stepsPerSec");
+        var stepremin = document.getElementById("stepsRem");
+
+        var count, speed;
+        var countValid = false;
+        var speedValid = false;
+        if (selected.speed && (speedin.value != "")) {
+            if (typeof(speedin.value) == "string") {
+                speed = parseInt(speedin.value);
+            }
+            else {
+                speed = speedin.value;
+            }
+            speedValid = true;
+            var setRep = report;
+            setRep.stepper.speed = speed;
+            if ((ws!=null) && (ws.readyState==WebSocket.OPEN)) {
+                ws.send(JSON.stringify(setRep));
+            }
+            speedin.blur();
+        } 
+        if (selected.count && (stepremin.value != "")) {
+            var forever = false;
+            if (typeof(stepremin.value) == "string") {
+                if (stepremin.value == "inf") {
+                    forever = true;
+                    count = 0;
+                }
+                count = parseInt(stepremin.value);
+            }
+            else {
+                count = stepremin.value;
+            }
+            countValid = true;
+            var setRep = report;
+            setRep.stepper.rem = count;
+            setRep.stepper.forever = forever;
+            if ((ws!=null) && (ws.readyState==WebSocket.OPEN)) {
+                ws.send(JSON.stringify(setRep));
+            }
+            stepremin.blur();
+        }
+        console.log("count: "+count+" - "+(countValid?"true":"false"));
+        console.log("speed: "+speed+" - "+(speedValid?"true":"false"));
+    }
+    console.log("Key: "+e.keyCode);
+    return true;
+}
+
+function SetDir(dir) {
+    var setRep = report;
+    setRep.stepper.dir = dir;
+    console.log("Dir: "+dir);
+    if ((ws!=null) && (ws.readyState==WebSocket.OPEN)) {
+        console.log("Sending dir");
+        ws.send(JSON.stringify(setRep));
+    }
+}
+
+
+</script>
+</HEAD>
+<TITLE>Nunchuck Canvas Test</TITLE>
+<BODY onload="SetupCanvas()">
+<DIV id="container">
+<DIV>This is a basic HTML5 Canvas test.</DIV>
+<br>
+
+<DIV id="canvas_div" style="float: left">
+    <div style="text-align: center; font-size: xx-large">
+        Servo Position
+    </div>
+    <canvas id="Nunchuck_Canvas" width="256" height="256">
+        
+    </canvas>
+    <DIV>
+        <DIV style="display:inline">X: 
+            <input id="nun_stick_x" type="text" disabled />
+        </DIV>
+        <DIV style="display:inline">Y: 
+            <input id="nun_stick_y" type="text" disabled />
+        </DIV>
+    </DIV>
+</DIV>
+
+<DIV id="stepper_container" style="float: left; margin-left: 100">
+    <div style="text-align: center; font-size: xx-large">
+        Stepper Position
+    </div>
+<canvas id="Stepper_Canvas">
+    
+</canvas>
+<div>
+    <div>Steps To Move:
+        <input id="stepsRem" type="text" 
+        onfocus="selected.count=true;return true;"
+        onblur="selected.count=false;return true;"
+        onkeyup="return CheckComplete(event)"/>
+    </div>
+    <div>Steps/sec: 
+        <input id="stepsPerSec" type="number"
+        onfocus="selected.speed=true;return true;"
+        onblur="selected.speed=false;return true;"
+        onkeyup="return CheckComplete(event)"/>
+    </div>
+    <div>Direction: 
+        <form>
+        <input id="dir_radio_cw" name="dir_radio" type="radio" 
+        onchange="SetDir(1);"/>Clockwise
+        <input id="dir_radio_CCW" name="dir_radio" type="radio"
+        onchange="SetDir(-1);"/>Counter-Clockwise
+        </form>
+    </div>
+</div>
+</DIV>
+<div id="range_contatiner" style="float: left; margin-left: 100">
+    <canvas id="Range_canvas">
+        
+    </canvas>
+    <div>
+        Range (cm): <input id="range_in" type="text" disabled />
+    </div>
+</div>
+<br>
+</DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,70 @@
+
+blink.elf:     file format elf32-littlearm
+
+Contents of section .text:
+ 0000 a4009fe5 8010a0e3 8111a0e1 002090e5  ............. ..
+ 0010 020080e1 001080e5 90009fe5 001090e5  ................
+ 0020 8020a0e3 8220a0e1 021081e1 001080e5  . ... ..........
+ 0030 041080e5 0c1080e5 74009fe5 141090e5  ........t.......
+ 0040 b020a0e3 0223a0e1 042080e5 021081e1  . ...#... ......
+ 0050 141080e5 8010a0e3 8111a0e1 0c1080e5  ................
+ 0060 0d0000eb 0c1080e5 0b0000eb 8110a0e1  ................
+ 0070 0c1080e5 080000eb 0c1080e5 060000eb  ................
+ 0080 0111a0e1 0c1080e5 030000eb 0c1080e5  ................
+ 0090 010000eb a111a0e1 efffffea 14509fe5  .............P..
+ 00a0 015055e2 fdffff1a 0ef0a0e1 38800440  .PU.........8..@
+ 00b0 28a00440 40f00f40 20a10700           (..@@..@ ...    
+Contents of section .ARM.attributes:
+ 0000 41130000 00616561 62690001 09000000  A....aeabi......
+ 0010 06010801                             ....            
+
+Disassembly of section .text:
+
+00000000 <.text>:
+   0:	e59f00a4 	ldr	r0, [pc, #164]	; 0xac
+   4:	e3a01080 	mov	r1, #128	; 0x80
+   8:	e1a01181 	lsl	r1, r1, #3
+   c:	e5902000 	ldr	r2, [r0]
+  10:	e1800002 	orr	r0, r0, r2
+  14:	e5801000 	str	r1, [r0]
+  18:	e59f0090 	ldr	r0, [pc, #144]	; 0xb0
+  1c:	e5901000 	ldr	r1, [r0]
+  20:	e3a02080 	mov	r2, #128	; 0x80
+  24:	e1a02082 	lsl	r2, r2, #1
+  28:	e1811002 	orr	r1, r1, r2
+  2c:	e5801000 	str	r1, [r0]
+  30:	e5801004 	str	r1, [r0, #4]
+  34:	e580100c 	str	r1, [r0, #12]
+  38:	e59f0074 	ldr	r0, [pc, #116]	; 0xb4
+  3c:	e5901014 	ldr	r1, [r0, #20]
+  40:	e3a020b0 	mov	r2, #176	; 0xb0
+  44:	e1a02302 	lsl	r2, r2, #6
+  48:	e5802004 	str	r2, [r0, #4]
+  4c:	e1811002 	orr	r1, r1, r2
+  50:	e5801014 	str	r1, [r0, #20]
+  54:	e3a01080 	mov	r1, #128	; 0x80
+  58:	e1a01181 	lsl	r1, r1, #3
+  5c:	e580100c 	str	r1, [r0, #12]
+  60:	eb00000d 	bl	0x9c
+  64:	e580100c 	str	r1, [r0, #12]
+  68:	eb00000b 	bl	0x9c
+  6c:	e1a01081 	lsl	r1, r1, #1
+  70:	e580100c 	str	r1, [r0, #12]
+  74:	eb000008 	bl	0x9c
+  78:	e580100c 	str	r1, [r0, #12]
+  7c:	eb000006 	bl	0x9c
+  80:	e1a01101 	lsl	r1, r1, #2
+  84:	e580100c 	str	r1, [r0, #12]
+  88:	eb000003 	bl	0x9c
+  8c:	e580100c 	str	r1, [r0, #12]
+  90:	eb000001 	bl	0x9c
+  94:	e1a011a1 	lsr	r1, r1, #3
+  98:	eaffffef 	b	0x5c
+  9c:	e59f5014 	ldr	r5, [pc, #20]	; 0xb8
+  a0:	e2555001 	subs	r5, r5, #1
+  a4:	1afffffd 	bne	0xa0
+  a8:	e1a0f00e 	mov	pc, lr
+  ac:	40048038 	andmi	r8, r4, r8, lsr r0
+  b0:	4004a028 	andmi	sl, r4, r8, lsr #32
+  b4:	400ff040 	andmi	pc, pc, r0, asr #32
+  b8:	0007a120 	andeq	sl, r7, r0, lsr #2
